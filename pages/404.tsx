@@ -1,16 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
 import Link from 'next/link';
-import styled from 'styled-components';
-
-const StyledLink = styled.div`
-  color: cornflowerblue;
-  transition: .5s ease;
-  
-  &:hover {
-    opacity: .8;
-  }
-`
+import { StyledLink } from '../components/styled-components';
 
 export default function Error() {
   return (

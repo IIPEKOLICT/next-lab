@@ -18,3 +18,12 @@ export const Card = styled.div`
     border-color: cornflowerblue;
   }
 `
+
+export const StyledLink = styled.div`
+  color: cornflowerblue;
+  transition: .5s ease;
+  
+  &:hover {
+    opacity: .8;
+  }
+`

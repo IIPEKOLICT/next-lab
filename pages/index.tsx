@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import Image from 'next/image';
+import { StyledLink } from '../components/styled-components';
 
 const Styled = styled.div`
   width: 100%;
@@ -22,6 +23,9 @@ const Home: NextPage = () => {
     <Layout title="Home">
       <Styled>
         <h1>Home page</h1>
+        <StyledLink>
+          <a href="/navalny.zip">Download zip with some sheet (!!!)</a>
+        </StyledLink>
         <Divider />
         <Image
           src="https://www.pcclean.io/wp-content/uploads/2020/4/iuEnim.jpg"
