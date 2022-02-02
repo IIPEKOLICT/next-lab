@@ -8,7 +8,7 @@ const StyledLink = styled.div`
   transition: .5s ease;
   
   &:hover {
-    opacity: ${Math.random().toFixed(1)};
+    opacity: .8;
   }
 `
 

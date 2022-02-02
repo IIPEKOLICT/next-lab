@@ -20,7 +20,6 @@ const Layout: React.FC<LayoutProps> = ({
       <Head>
         <meta name="description" content={description || ''} />
         <meta name="keywords" content={'next.js, ssr'.concat(keywords || '')} />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <title>{title}</title>
       </Head>
       <Container>

@@ -1,41 +1,61 @@
 import React from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 import styled from 'styled-components';
+
+type Route = {
+  href: string;
+  title: string;
+};
+
+const routes: Route[] = [
+  {
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'Todos',
+    href: '/todos',
+  },
+  {
+    title: 'Posts',
+    href: '/posts',
+  },
+];
 
 const centeredStyles = `
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const StyledNav = styled.nav`
   width: 100%;
-  
+
   ul {
     width: 100%;
     display: flex;
     gap: 2em;
     list-style: none;
     padding: 0;
-    
-    @media ${props => props.theme.media.phone} {
+
+    @media ${(props) => props.theme.media.phone} {
       flex-direction: column;
       align-items: center;
     }
   }
-  
+
   li {
     width: 100px;
     color: brown;
     padding: 1em;
     position: relative;
     ${centeredStyles};
-    transition: .2s ease-out;
-    
+    transition: 0.2s ease-out;
+
     &:hover {
-      background: rgba(0,0,0,.3);
+      background: rgba(0, 0, 0, 0.3);
     }
-    
+
     a {
       width: 100%;
       height: 100%;
@@ -43,21 +63,17 @@ const StyledNav = styled.nav`
       ${centeredStyles}
     }
   }
-`
+`;
 
 const Nav: React.FC = () => {
   return (
     <StyledNav>
       <ul>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/todos">Todos</Link>
-        </li>
-        <li>
-          <Link href="/create">Create todo</Link>
-        </li>
+        {routes.map((route: Route) => (
+          <li key={route.href}>
+            <Link href={route.href}>{route.title}</Link>
+          </li>
+        ))}
       </ul>
     </StyledNav>
   );

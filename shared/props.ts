@@ -1,4 +1,4 @@
-import { Todo } from './models';
+import { Post, Todo } from './models';
 
 export type LayoutProps = {
   description?: string;
@@ -8,4 +8,20 @@ export type LayoutProps = {
 
 export type TodosProps = {
   todos: Todo[];
+}
+
+export type TodoCardProps = {
+  todo: Todo;
+}
+
+export type TodoPageProps = TodoCardProps & {
+  randomNumber: number;
+}
+
+export type PostCardProps = {
+  post: Post;
+}
+
+export type PostPageProps = {
+  posts: Post[];
 }
