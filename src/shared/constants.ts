@@ -1,4 +1,3 @@
-import { join } from 'path';
 import { Route } from './types';
 
 export const routes: Route[] = [
@@ -20,5 +19,4 @@ export const routes: Route[] = [
   },
 ];
 
-export const ROOT_PATH: string = process.cwd();
-export const PUBLIC_PATH: string = join(ROOT_PATH, 'public');
+export const API_URL = 'https://iipekolict--nest-storage.herokuapp.com';
