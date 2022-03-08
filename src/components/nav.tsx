@@ -1,26 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-
-type Route = {
-  href: string;
-  title: string;
-};
-
-const routes: Route[] = [
-  {
-    title: 'Home',
-    href: '/',
-  },
-  {
-    title: 'Todos',
-    href: '/todos',
-  },
-  {
-    title: 'Posts',
-    href: '/posts',
-  },
-];
+import { routes } from '../shared/constants';
+import { Route } from '../shared/types';
 
 const centeredStyles = `
   display: flex;

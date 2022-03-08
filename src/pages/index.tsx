@@ -1,31 +1,27 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import Image from 'next/image';
-import { StyledLink } from '../components/styled-components';
 
 const Styled = styled.div`
   width: 100%;
   height: 150vh;
   text-align: center;
-  
+
   h1 {
     color: violet;
   }
-`
+`;
 
 const Divider = styled.div`
   height: 100vh;
-`
+`;
 
 const Home: NextPage = () => {
   return (
     <Layout title="Home">
       <Styled>
         <h1>Home page</h1>
-        <StyledLink>
-          <a href="/navalny.zip">Download zip with some sheet (!!!)</a>
-        </StyledLink>
         <Divider />
         <Image
           src="https://www.pcclean.io/wp-content/uploads/2020/4/iuEnim.jpg"
@@ -37,7 +33,7 @@ const Home: NextPage = () => {
         />
       </Styled>
     </Layout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
