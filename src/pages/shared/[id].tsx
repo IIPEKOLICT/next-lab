@@ -17,9 +17,6 @@ export const getServerSideProps: GetServerSideProps = async (
   const fileNames: string[] = await (
     await fetch(join(API_URL, id || ''))
   ).json();
-  // const links: string[] = fileNames.map((fileName: string) =>
-  //   join(API_URL, id || '', fileName)
-  // );
 
   return { props: { dir: id, fileNames } };
 };
