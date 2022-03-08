@@ -10,6 +10,7 @@ import { API_URL } from '../../shared/constants';
 import { join } from 'path';
 import { ParsedUrlQuery } from 'querystring';
 import { useShared } from '../../hooks/useShared';
+import Link from 'next/link';
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
@@ -35,9 +36,11 @@ const SharedFiles: NextPage<SharedFilesPageProps> = ({
   return (
     <Layout title={dir}>
       <h1>{dir} directory</h1>
-      {fileNames.map((fileName: string, index: number) => (
+      {fileNames.map((fileName: string) => (
         <StyledLink key={fileName}>
-          <a onClick={openFile(index)}>{fileName}</a>
+          <Link href={join(API_URL, dir, fileName)}>
+            <a>{fileName}</a>
+          </Link>
         </StyledLink>
       ))}
     </Layout>
