@@ -9,6 +9,7 @@ import { StyledLink } from '../../components/styled-components';
 import { API_URL } from '../../shared/constants';
 import { join } from 'path';
 import { ParsedUrlQuery } from 'querystring';
+import { useShared } from '../../hooks/useShared';
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
@@ -29,12 +30,14 @@ const SharedFiles: NextPage<SharedFilesPageProps> = ({
   fileNames,
   links,
 }) => {
+  const { openFile } = useShared(links);
+
   return (
     <Layout title={dir}>
       <h1>{dir} directory</h1>
       {fileNames.map((fileName: string, index: number) => (
         <StyledLink key={fileName}>
-          <a href={links && links[index]}>{fileName}</a>
+          <a onClick={openFile(index)}>{fileName}</a>
         </StyledLink>
       ))}
     </Layout>
