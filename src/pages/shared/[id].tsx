@@ -17,16 +17,24 @@ export const getServerSideProps: GetServerSideProps = async (
   const fileNames: string[] = await (
     await fetch(join(API_URL, id || ''))
   ).json();
-  return { props: { dir: id, fileNames } };
+  const links: string[] = fileNames.map((fileName: string) =>
+    join(API_URL, id || '', fileName)
+  );
+
+  return { props: { dir: id, fileNames, links } };
 };
 
-const SharedFiles: NextPage<SharedFilesPageProps> = ({ dir, fileNames }) => {
+const SharedFiles: NextPage<SharedFilesPageProps> = ({
+  dir,
+  fileNames,
+  links,
+}) => {
   return (
     <Layout title={dir}>
       <h1>{dir} directory</h1>
-      {fileNames.map((fileName: string) => (
+      {fileNames.map((fileName: string, index: number) => (
         <StyledLink key={fileName}>
-          <a href={join(API_URL, dir, fileName)}>{fileName}</a>
+          <a href={links && links[index]}>{fileName}</a>
         </StyledLink>
       ))}
     </Layout>

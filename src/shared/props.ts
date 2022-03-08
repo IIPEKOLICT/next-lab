@@ -29,4 +29,5 @@ export type PostPageProps = {
 export type SharedFilesPageProps = {
   dir: string;
   fileNames: string[];
+  links?: string[];
 };
