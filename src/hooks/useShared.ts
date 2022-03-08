@@ -1,15 +1,9 @@
-import { useEffect, useState } from 'react';
-
-export function useShared(initLinks?: string[]) {
-  const [links, setLinks] = useState<string[]>([]);
-
-  useEffect(() => setLinks((prev: string[]) => initLinks || prev), []);
-
+export function useShared(links?: string[]) {
   return {
     openFile: (index: number) => {
       return () => {
         if (links) {
-          window.location.assign(links[index]);
+          window.location.href = links[index];
         }
       };
     },
